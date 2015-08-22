@@ -3,7 +3,8 @@
 
   angular.module('marfedhaus').controller('DogCtrl', DogCtrl);
 
-  function DogCtrl() {
-    // TODO: DogCtrl
+  function DogCtrl(dog) {
+    var vm = this;
+    vm.dog = dog;
   }
 })();

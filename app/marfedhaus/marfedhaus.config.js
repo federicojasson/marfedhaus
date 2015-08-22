@@ -14,27 +14,44 @@
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'views/home.html'
+        templateUrl: 'marfedhaus/home.html'
       })
       .state('about', {
         url: '/about',
-        templateUrl: 'views/about.html'
+        templateUrl: 'marfedhaus/about.html'
       })
       .state('dogs', {
         url: '/dogs',
-        templateUrl: 'views/dogs.html',
+        templateUrl: 'marfedhaus/dogs.html',
         controller: 'DogsCtrl',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          dogs: [
+            'Dogs',
+            function(Dogs) {
+              return Dogs.getAll();
+            }
+          ]
+        }
       })
       .state('dog', {
         url: '/dogs/{id}',
-        templateUrl: 'views/dog.html',
+        templateUrl: 'marfedhaus/dog.html',
         controller: 'DogCtrl',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          dog: [
+            '$stateParams',
+            'Dogs',
+            function($stateParams, Dogs) {
+              return Dogs.get($stateParams.id);
+            }
+          ]
+        }
       })
       .state('news', {
         url: '/news',
-        templateUrl: 'views/news.html',
+        templateUrl: 'marfedhaus/news.html',
         controller: 'NewsCtrl',
         controllerAs: 'vm'
       });
