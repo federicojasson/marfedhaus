@@ -2,12 +2,14 @@
   {
     "id": "frida",
     "name": "Frida Von Marfedhaus",
-    "gender": "female"
+    "gender": "female",
+    "birthDate": "2006-06-25"
   },
 
   {
     "id": "zato",
     "name": "Zato Von Marfedhaus",
-    "gender": "male"
+    "gender": "male",
+    "birthDate": "2014-08-26"
   }
 ]

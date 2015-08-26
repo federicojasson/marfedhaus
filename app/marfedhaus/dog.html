@@ -1,5 +1,7 @@
 TODO: dog.html
 
-ID: {{ vm.dog.id }}
-Nombre: {{ vm.dog.name }}
-Sexo: {{ vm.dog.gender | gender }}
+ID: {{ vm.dog.id }}<br>
+Nombre: {{ vm.dog.name }}<br>
+Sexo: {{ vm.dog.gender | gender }}<br>
+Fecha de nacimiento: {{ vm.dog.birthDate | date : 'longDate' }}<br>
+Edad (años): {{ vm.dog.birthDate | age }}
