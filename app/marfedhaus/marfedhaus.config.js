@@ -12,15 +12,19 @@
     $locationProvider.html5Mode(true);
 
     $stateProvider
-      .state('home', {
+      .state('root', {
+        abstract: true,
+        templateUrl: 'marfedhaus/root.html'
+      })
+      .state('root.home', {
         url: '/',
         templateUrl: 'marfedhaus/home.html'
       })
-      .state('about', {
+      .state('root.about', {
         url: '/about',
         templateUrl: 'marfedhaus/about.html'
       })
-      .state('dogs', {
+      .state('root.dogs', {
         url: '/dogs',
         templateUrl: 'marfedhaus/dogs.html',
         controller: 'DogsCtrl',
@@ -34,7 +38,7 @@
           ]
         }
       })
-      .state('dog', {
+      .state('root.dog', {
         url: '/dogs/{id}',
         templateUrl: 'marfedhaus/dog.html',
         controller: 'DogCtrl',
@@ -49,7 +53,7 @@
           ]
         }
       })
-      .state('news', {
+      .state('root.news', {
         url: '/news',
         templateUrl: 'marfedhaus/news.html',
         controller: 'NewsCtrl',
