@@ -1,1 +1,175 @@
-<!DOCTYPE html> <html ng-app="marfedhaus"> <head> <base href="/"> <meta charset="UTF-8"> <title>Criadero Von Marfedhaus</title> <link rel="stylesheet" href="styles/vendor.79d2e23a.css"> </head> <body> <ui-view></ui-view> <script src="scripts/vendor.12bd8147.js"></script> <script src="scripts/scripts.da843936.js"></script> </body> </html>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		
+		<link href="favicon.ico" rel="icon">
+		<link href="styles/maximage.css" rel="stylesheet">
+		<link href="styles/style.css" rel="stylesheet">
+		
+		<title>Von Marfedhaus</title>
+	</head>
+	
+	<body>
+		<nav class="social-nav">
+			<ul>
+				<li>
+					<a href="https://www.facebook.com/pages/Criadero-von-Marfedhaus-Ovejeros-Alemanes/154603291246109">
+						<img src="images/facebook.png">
+					</a>
+				</li>
+			</ul>
+		</nav>
+		
+		<div id="logo">Von Marfedhaus</div>
+		
+		<nav class="main-nav">
+			<ul>
+				<li>
+					<a href="#home">
+						Inicio
+					</a>
+				</li>
+				
+				<li>
+					<a href="#about">
+						Quiénes somos
+					</a>
+				</li>
+				
+				<li>
+					<a href="#contact">
+						Contactanos
+					</a>
+				</li>
+			</ul>
+		</nav>
+		
+		<section class="content" id="home">
+			<h1>Von Marfedhaus</h1>
+			
+			<p>
+				Gracias por tu visita. Te comentamos que el sitio se encuentra
+				actualmente en construcción.
+			</p>
+			
+			<p>
+				Si querés saber a qué nos dedicamos, podés ingresar
+				<a href="#about">acá</a>.
+			</p>
+			
+			<p>
+				Ante cualquier consulta, no dudes en ponerte en
+				<a href="#contact">contacto</a>.
+			</p>
+		</section>
+		
+		<section class="content" id="about">
+			<h1>Quiénes somos</h1>
+			
+			<p>
+				Von Marfedhaus nace en el año 2000 como un criadero familiar
+				dedicado a la crianza del perro ovejero alemán. Nuestro objetivo
+				principal es la crianza de perros saludables, fuertes y de buen
+				temperamento, y la genética juega un rol esencial en estos
+				aspectos.
+			</p>
+			
+			<p>
+				Sabemos cómo un perro puede cambiar la vida de una persona. Por
+				eso, llevamos a cabo la crianza en forma <strong>ética y
+				responsable</strong>.
+			</p>
+		</section>
+		
+		<section class="content" id="contact">
+			<h1>Contactanos</h1>
+			
+			<p>
+				Email:
+				<a href="mailto:marfedhaus@yahoo.com">marfedhaus@yahoo.com</a>
+			</p>
+			
+			<p>
+				Seguinos en
+				<a href="https://www.facebook.com/pages/Criadero-von-Marfedhaus-Ovejeros-Alemanes/154603291246109">Facebook</a>.
+			</p>
+			
+			<p>
+				Estamos en <strong>Bahía Blanca</strong> (Buenos Aires,
+				Argentina).
+			</p>
+		</section>
+		
+		<div id="maximage">
+			<div>
+				<img src="images/backgrounds/1.jpg">
+				<img src="images/gradient.png">
+			</div>
+			
+			<div>
+				<img src="images/backgrounds/2.jpg">
+				<img src="images/gradient.png">
+			</div>
+			
+			<div>
+				<img src="images/backgrounds/3.jpg">
+				<img src="images/gradient.png">
+			</div>
+			
+			<div>
+				<img src="images/backgrounds/4.jpg">
+				<img src="images/gradient.png">
+			</div>
+		</div>
+		
+		<script src="scripts/jquery.min.js"></script>
+		<script src="scripts/jquery.cycle.all.js" type="text/javascript" charset="utf-8"></script>
+		<script src="scripts/jquery.maximage.js" type="text/javascript" charset="utf-8"></script>
+		<script src="scripts/jquery.ba-hashchange.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript" charset="utf-8">
+			jQuery(function() {
+				function hashChanged() {
+					var hash = location.hash;
+					
+					if (hash === '') {
+						hash = '#home';
+					}
+					
+					var links = jQuery('.main-nav ul li a');
+					var activeLink = jQuery('a[href=' + hash + ']');
+					var sections = jQuery('section');
+					var activeSection = jQuery('section' + hash);
+					
+					links.removeClass('active');
+					activeLink.addClass('active');
+					
+					sections.not(activeSection).fadeTo(1000, 0, function() {
+						jQuery(this).hide();
+					});
+					
+					activeSection.fadeTo(1000, 1, function() {
+						jQuery(this).show();
+					});
+				}
+				
+				jQuery(window).hashchange(hashChanged);
+				
+				jQuery('#maximage').maximage({
+					cycleOptions: {
+						fx: 'fade',
+						speed: 1000,
+						timeout: 5000,
+						pause: 0
+					},
+					onFirstImageLoaded: function() {
+						jQuery('#maximage').fadeIn('fast');
+					}
+				});
+				
+				hashChanged();
+			});
+		</script>
+	</body>
+</html>
